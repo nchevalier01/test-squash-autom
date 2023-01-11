@@ -5,6 +5,7 @@ Library           SeleniumLibrary
 *** Variables ***
 ${LOGIN URL}      https://www.amazon.fr
 ${BROWSER}        Firefox
+${WELCOME_TEXT}    Bonjour
 
 *** Test Cases ***
 Valid Login
@@ -14,6 +15,7 @@ Valid Login
     Click Continue
     Input Password    Beynost@2018
     Click Submit
+    Check Welcome Message
     [Teardown]    Close Browser
 
 *** Keywords ***
@@ -38,3 +40,5 @@ Input Password
 Click Submit
     Click Button    signInSubmit    
     
+Check Welcome Message
+    Element Should Contain    nav-link-accountList-nav-line-1    ${WELCOME_TEXT}
