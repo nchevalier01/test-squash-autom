@@ -7,30 +7,20 @@ ${URL}            https://ecommerce-playground.lambdatest.io/index.php?route=acc
 ${BROWSER}      Chrome
 ${LOGIN}        nchevalier@sc-services.fr
 ${PASSWORD}     123456
-${USERNAME}    nicolas
+${MYACCOUNT}    My Account
 
 *** Test Cases ***
 Valid Login
-    Open Browser To Home Page
-    Accept Cookie
-    Click To Login Page
+    Open Browser To Login Page
     Send Login
-    Click To Continue
     Send Password
     Click To Submit
+    Check MyAccount
     [Teardown]    Close Browser
 
 *** Keywords ***
-Open Browser To Home Page
+Open Browser To Login Page
     Open Browser    ${URL}    ${BROWSER}
-
-Accept Cookie
-    Wait Until Element Is Visible    sp-cc-accept
-    Click Element    sp-cc-accept
-
-Click To Login Page
-    Wait Until Element Is Visible    nav-link-accountList-nav-line-1
-    Click Element    nav-link-accountList-nav-line-1
 
 Send Login
     Input Text    email    ${LOGIN}
@@ -42,8 +32,8 @@ Send Password
     Input Password    password    ${PASSWORD}
 
 Click To Submit
-    Click Element    signInSubmit
+    Click Element    css:#content > div > div:nth-child(2) > div > div > form > input
 
-Check UserName
-    Element Should Contain    nav-link-accountList-nav-line-1    ${USERNAME}    ignore_case    =    False
+Check MyAccount
+    Element Should Contain    account-account    ${MYACCOUNT}    ignore_case = True
 
