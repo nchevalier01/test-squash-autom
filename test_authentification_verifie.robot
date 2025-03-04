@@ -3,10 +3,10 @@ Documentation     Test Authentification.
 Library            SeleniumLibrary
 
 *** Variables ***
-${URL}            https://www.amazon.fr
-${BROWSER}      Firefox
-${LOGIN}        nschevalier@club-internet.fr
-${PASSWORD}     12345
+${URL}            https://ecommerce-playground.lambdatest.io/index.php?route=account/login
+${BROWSER}      Chrome
+${LOGIN}        nchevalier@sc-services.fr
+${PASSWORD}     123456
 ${USERNAME}    nicolas
 
 *** Test Cases ***
